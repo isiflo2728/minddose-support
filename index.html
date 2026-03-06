@@ -8,8 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --teal-dark: #0a2e2e;
-            --teal-mid: #0d4a4a;
             --teal-bright: #1abc9c;
             --teal-glow: #2ecc71;
             --mint: #a8f0d4;
@@ -22,9 +20,7 @@
             --text-dim: #7fb8a8;
             --radius: 16px;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--bg);
@@ -32,372 +28,131 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
-
-        /* Ambient background */
         body::before {
             content: '';
             position: fixed;
-            top: -40%;
-            left: -20%;
-            width: 80vw;
-            height: 80vw;
-            background: radial-gradient(circle, rgba(26, 188, 156, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
+            top: -40%; left: -20%;
+            width: 80vw; height: 80vw;
+            background: radial-gradient(circle, rgba(26,188,156,0.08) 0%, transparent 70%);
+            pointer-events: none; z-index: 0;
         }
         body::after {
             content: '';
             position: fixed;
-            bottom: -30%;
-            right: -20%;
-            width: 70vw;
-            height: 70vw;
-            background: radial-gradient(circle, rgba(46, 204, 113, 0.06) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
+            bottom: -30%; right: -20%;
+            width: 70vw; height: 70vw;
+            background: radial-gradient(circle, rgba(46,204,113,0.06) 0%, transparent 70%);
+            pointer-events: none; z-index: 0;
         }
-
         .page { position: relative; z-index: 1; }
-
-        /* ─── HEADER ─── */
-        header {
-            padding: 3rem 2rem 2rem;
-            text-align: center;
-        }
-
+        header { padding: 3rem 2rem 2rem; text-align: center; }
         .app-icon {
-            width: 88px;
-            height: 88px;
-            border-radius: 22px;
+            width: 88px; height: 88px; border-radius: 22px;
             background: linear-gradient(145deg, #1abc9c, #2ecc71);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             margin: 0 auto 1.5rem;
-            box-shadow: 0 8px 40px rgba(26, 188, 156, 0.3), 0 0 0 1px rgba(26, 188, 156, 0.2);
+            box-shadow: 0 8px 40px rgba(26,188,156,0.3), 0 0 0 1px rgba(26,188,156,0.2);
             animation: float 4s ease-in-out infinite;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
         .app-icon svg { width: 40px; height: 40px; }
-
         h1 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 2.4rem;
-            letter-spacing: -0.03em;
-            margin-bottom: 0.4rem;
+            font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 2.4rem;
+            letter-spacing: -0.03em; margin-bottom: 0.4rem;
             background: linear-gradient(135deg, var(--text), var(--mint));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-
-        header p {
-            color: var(--text-dim);
-            font-size: 1.05rem;
-            max-width: 420px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* ─── CONTAINER ─── */
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem 4rem;
-        }
-
-        /* ─── SECTION ─── */
-        .section {
-            margin-bottom: 2.5rem;
-        }
-
+        header p { color: var(--text-dim); font-size: 1.05rem; max-width: 420px; margin: 0 auto; line-height: 1.6; }
+        .container { max-width: 720px; margin: 0 auto; padding: 1rem 1.5rem 4rem; }
+        .section { margin-bottom: 2.5rem; }
         .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--mint);
+            font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.3rem;
+            margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; color: var(--mint);
         }
-
         .section-title .icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            background: rgba(26, 188, 156, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            width: 28px; height: 28px; border-radius: 8px;
+            background: rgba(26,188,156,0.15);
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
         }
+        .section-title .icon svg { width: 16px; height: 16px; stroke: var(--teal-bright); }
 
-        .section-title .icon svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--teal-bright);
-        }
-
-        /* ─── FAQ ─── */
         .faq-item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            margin-bottom: 0.75rem;
-            overflow: hidden;
-            transition: border-color 0.3s, background 0.3s;
-            backdrop-filter: blur(12px);
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); margin-bottom: 0.75rem;
+            overflow: hidden; transition: border-color 0.3s, background 0.3s; backdrop-filter: blur(12px);
         }
-
-        .faq-item:hover {
-            border-color: var(--border-hover);
-            background: var(--surface-hover);
-        }
-
+        .faq-item:hover { border-color: var(--border-hover); background: var(--surface-hover); }
         .faq-question {
-            padding: 1.1rem 1.4rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 0.95rem;
-            user-select: none;
-            transition: color 0.2s;
+            padding: 1.1rem 1.4rem; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 600; font-size: 0.95rem; user-select: none; transition: color 0.2s;
         }
-
         .faq-question:hover { color: var(--mint); }
-
-        .faq-chevron {
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-            margin-left: 1rem;
-            opacity: 0.5;
-        }
-
-        .faq-item.open .faq-chevron {
-            transform: rotate(180deg);
-            opacity: 1;
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease, padding 0.35s ease;
-        }
-
-        .faq-item.open .faq-answer {
-            max-height: 300px;
-        }
-
-        .faq-answer-inner {
-            padding: 0 1.4rem 1.2rem;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        /* ─── CARDS ─── */
-        .card-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-        }
-
-        @media (max-width: 520px) {
-            .card-grid { grid-template-columns: 1fr; }
-        }
+        .faq-chevron { transition: transform 0.3s ease; flex-shrink: 0; margin-left: 1rem; opacity: 0.5; }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); opacity: 1; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .faq-item.open .faq-answer { max-height: 300px; }
+        .faq-answer-inner { padding: 0 1.4rem 1.2rem; color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
 
         .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(12px);
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 1.5rem; text-decoration: none; color: var(--text);
+            transition: all 0.3s ease; backdrop-filter: blur(12px);
+            display: flex; flex-direction: column; gap: 0.6rem;
         }
+        .card:hover { border-color: var(--border-hover); background: var(--surface-hover); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(26,188,156,0.1); }
+        .card-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(26,188,156,0.12); display: flex; align-items: center; justify-content: center; }
+        .card-icon svg { width: 20px; height: 20px; stroke: var(--teal-bright); }
+        .card-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1rem; }
+        .card-desc { color: var(--text-dim); font-size: 0.85rem; line-height: 1.5; }
 
-        .card:hover {
-            border-color: var(--border-hover);
-            background: var(--surface-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(26, 188, 156, 0.1);
+        .content-box {
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 1.8rem; backdrop-filter: blur(12px);
         }
+        .content-box p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.75; margin-bottom: 0.8rem; }
+        .content-box p:last-child { margin-bottom: 0; }
 
-        .card-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(26, 188, 156, 0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card-icon svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--teal-bright);
-        }
-
-        .card-title {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .card-desc {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-
-        /* ─── PRIVACY ─── */
-        .privacy-box {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.8rem;
-            backdrop-filter: blur(12px);
-        }
-
-        .privacy-box p {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            line-height: 1.75;
-            margin-bottom: 0.8rem;
-        }
-
-        .privacy-box p:last-child { margin-bottom: 0; }
-
-        /* ─── CONTACT FORM ─── */
         .contact-form {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.8rem;
-            backdrop-filter: blur(12px);
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 1.8rem; backdrop-filter: blur(12px);
         }
-
-        .form-group {
-            margin-bottom: 1.2rem;
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--mint); }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 0.8rem 1rem;
+            background: rgba(10,46,46,0.6); border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+            outline: none; transition: border-color 0.3s;
         }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 0.4rem;
-            color: var(--mint);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background: rgba(10, 46, 46, 0.6);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--teal-bright);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--text-dim);
-            opacity: 0.5;
-        }
-
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--teal-bright); }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-dim); opacity: 0.5; }
         .submit-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
             padding: 0.8rem 1.6rem;
             background: linear-gradient(145deg, #1abc9c, #2ecc71);
-            color: #060e0e;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.95rem;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
+            color: #060e0e; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem;
+            border: none; border-radius: 10px; cursor: pointer;
             transition: transform 0.2s, box-shadow 0.3s;
         }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(26,188,156,0.3); }
+        .submit-btn svg { width: 18px; height: 18px; stroke: #060e0e; }
+        .form-success { display: none; text-align: center; padding: 1.5rem; color: var(--mint); font-weight: 600; font-size: 1.05rem; }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(26, 188, 156, 0.3);
-        }
-
-        .submit-btn svg {
-            width: 18px;
-            height: 18px;
-            stroke: #060e0e;
-        }
-
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-            color: var(--mint);
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-
-        /* ─── FOOTER ─── */
-        footer {
-            text-align: center;
-            padding: 2rem 1.5rem 3rem;
-            color: var(--text-dim);
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-
-        /* ─── ANIMATIONS ─── */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        footer { text-align: center; padding: 2rem 1.5rem 3rem; color: var(--text-dim); font-size: 0.8rem; opacity: 0.6; }
+        .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 0.6s ease forwards; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
         .fade-up:nth-child(1) { animation-delay: 0.05s; }
         .fade-up:nth-child(2) { animation-delay: 0.12s; }
         .fade-up:nth-child(3) { animation-delay: 0.19s; }
         .fade-up:nth-child(4) { animation-delay: 0.26s; }
+        .fade-up:nth-child(5) { animation-delay: 0.33s; }
     </style>
 </head>
 <body>
 <div class="page">
 
-    <!-- HEADER -->
     <header class="fade-up">
         <div class="app-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
@@ -414,78 +169,37 @@
         <!-- FAQ -->
         <div class="section fade-up">
             <div class="section-title">
-                <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                        <line x1="12" y1="17" x2="12.01" y2="17"/>
-                    </svg>
-                </span>
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
                 Frequently Asked Questions
             </div>
-
             <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">
-                    How do I add a new medication?
-                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-                <div class="faq-answer"><div class="faq-answer-inner">
-                    Tap the "+" button on the home screen to add a new medication. Enter the name, dosage, frequency, and set reminders to stay on track.
-                </div></div>
+                <div class="faq-question">How do I add a new medication?<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Tap the "+" button on the home screen to add a new medication. Enter the name, dosage, frequency, and set reminders to stay on track.</div></div>
             </div>
-
             <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">
-                    Is my health data private?
-                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-                <div class="faq-answer"><div class="faq-answer-inner">
-                    Yes. All your data is stored locally on your device. MindDose does not collect, transmit, or share any of your personal health information with third parties.
-                </div></div>
+                <div class="faq-question">Is my health data private?<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Yes. All your data is stored locally on your device. MindDose does not collect, transmit, or share any of your personal health information with third parties.</div></div>
             </div>
-
             <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">
-                    How does mood tracking work?
-                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-                <div class="faq-answer"><div class="faq-answer-inner">
-                    After logging a dose, you can record how you're feeling. Over time, MindDose helps you spot patterns between your medication and mood through your journal entries.
-                </div></div>
+                <div class="faq-question">How does mood tracking work?<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                <div class="faq-answer"><div class="faq-answer-inner">After logging a dose, you can record how you're feeling. Over time, MindDose helps you spot patterns between your medication and mood through your journal entries.</div></div>
             </div>
-
             <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">
-                    Can I export my medication history?
-                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-                <div class="faq-answer"><div class="faq-answer-inner">
-                    Yes! MindDose lets you export your history as a PDF, making it easy to share with your doctor or keep for your own records.
-                </div></div>
+                <div class="faq-question">Can I export my medication history?<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Yes! MindDose lets you export your history as a PDF, making it easy to share with your doctor or keep for your own records.</div></div>
             </div>
-
             <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">
-                    What devices are supported?
-                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-                <div class="faq-answer"><div class="faq-answer-inner">
-                    MindDose is available for iPhone and iPad running iOS 17.0 or later.
-                </div></div>
+                <div class="faq-question">What devices are supported?<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                <div class="faq-answer"><div class="faq-answer-inner">MindDose is available for iPhone and iPad running iOS 17.0 or later.</div></div>
             </div>
         </div>
 
         <!-- CONTACT -->
         <div class="section fade-up">
             <div class="section-title">
-                <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                    </svg>
-                </span>
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
                 Contact Us
             </div>
-
             <div class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -500,24 +214,14 @@
                     <textarea id="message" placeholder="How can we help?"></textarea>
                 </div>
                 <button class="submit-btn" onclick="sendEmail()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"/>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     Send Message
                 </button>
                 <div class="form-success" id="formSuccess">Thanks! Your message has been sent.</div>
             </div>
-
             <div style="margin-top: 0.75rem;">
                 <a href="https://discord.gg/euWXpQq9Jz" target="_blank" class="card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                            <polyline points="15 3 21 3 21 9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                    </div>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
                     <span class="card-title">Discord Community</span>
                     <span class="card-desc">Join our community for tips, feedback, and to connect with other users.</span>
                 </a>
@@ -527,19 +231,10 @@
         <!-- TERMS OF SERVICE -->
         <div class="section fade-up">
             <div class="section-title">
-                <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
-                    </svg>
-                </span>
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
                 Terms of Service
             </div>
-
-            <div class="privacy-box">
+            <div class="content-box">
                 <p>By downloading or using MindDose, you agree to these terms. MindDose is provided "as is" without warranties of any kind, express or implied.</p>
                 <p>MindDose is intended for personal health tracking purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider with any questions about a medical condition or medication.</p>
                 <p>We reserve the right to update or modify MindDose at any time. Continued use of the app after changes constitutes acceptance of the revised terms.</p>
@@ -551,15 +246,10 @@
         <!-- PRIVACY POLICY -->
         <div class="section fade-up">
             <div class="section-title">
-                <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    </svg>
-                </span>
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
                 Privacy Policy
             </div>
-
-            <div class="privacy-box">
+            <div class="content-box">
                 <p>MindDose is committed to protecting your privacy. The app stores all data locally on your device and does not collect, share, or transmit any personal or health-related information to external servers.</p>
                 <p>We do not use analytics, advertising SDKs, or third-party tracking. Your medication logs, journal entries, and mood data remain entirely under your control.</p>
                 <p>If you have questions about our privacy practices, please contact us at <a href="mailto:minddose27@gmail.com" style="color: var(--teal-bright); text-decoration: none; border-bottom: 1px solid var(--border);">minddose27@gmail.com</a>.</p>
@@ -568,4 +258,28 @@
 
     </div>
 
-</
+    <footer>&copy; 2026 MindDose. All rights reserved.</footer>
+
+</div>
+
+<script>
+function toggleFaq(item) {
+    var wasOpen = item.classList.contains('open');
+    var items = document.querySelectorAll('.faq-item');
+    for (var i = 0; i < items.length; i++) { items[i].classList.remove('open'); }
+    if (!wasOpen) item.classList.add('open');
+}
+
+function sendEmail() {
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) { alert('Please fill in all fields.'); return; }
+    var subject = encodeURIComponent('MindDose Support — ' + name);
+    var body = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message);
+    window.location.href = 'mailto:minddose27@gmail.com?subject=' + subject + '&body=' + body;
+    document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>
